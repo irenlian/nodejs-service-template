@@ -1,0 +1,6 @@
+app/node_modules
+app/npm-debug.log
+.git*
+.circleci
+deploy
+docs
