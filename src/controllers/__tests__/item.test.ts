@@ -51,34 +51,4 @@ describe('controllers/item', () => {
       expect(send.mock.calls[0][0]).toEqual({ id: 123 });
     });
   });
-  describe('update', () => {
-    it('should return ID after update', async () => {
-      const update = jest.fn().mockResolvedValue(1);
-      const send = jest.fn();
-
-      expect.assertions(2);
-      await controller.update({ update } as any)(
-        { params: { id: 123 }, body: { name: 'Item name' } } as any,
-        { send } as any,
-      );
-      expect(send.mock.calls.length).toBe(1);
-      expect(send.mock.calls[0][0]).toEqual({ id: 123 });
-    });
-
-    it('should return 404 if no update is done', async () => {
-      const update = jest.fn().mockResolvedValue(0);
-      const send = jest.fn();
-      const status = jest.fn().mockReturnThis();
-
-      expect.assertions(4);
-      await controller.update({ update } as any)(
-        { params: { id: 123 }, body: { name: 'Item name' } } as any,
-        { send, status } as any,
-      );
-      expect(status.mock.calls.length).toBe(1);
-      expect(status.mock.calls[0][0]).toBe(404);
-      expect(send.mock.calls.length).toBe(1);
-      expect(send.mock.calls[0][0]).toEqual({ message: 'No item with that ID' });
-    });
-  });
 });

@@ -1,17 +1,17 @@
 FROM node:14-alpine
 
-ADD ./app ./app
-WORKDIR /app
+ADD ./src ./src
+WORKDIR /src
 
-COPY app .editorconfig ./
+COPY src .editorconfig ./
 
-COPY ./app/package*.json ./
+COPY ./src/package*.json ./
 
 RUN npm ci && npm run build
 
-WORKDIR /app
+WORKDIR /src
 
-COPY --from=build /app ./
+COPY --from=build /src ./
 
 ENV PATH="./node_modules/.bin:${PATH}"
 

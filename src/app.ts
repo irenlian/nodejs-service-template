@@ -2,6 +2,7 @@
 import express from 'express';
 import { errors } from 'celebrate';
 import bodyParser from 'body-parser';
+import 'dotenv/config'
 
 // middleware
 import { notFound, unexpected } from './middleware/error-handler';

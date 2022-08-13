@@ -5,17 +5,17 @@ services:
     tty: true
     command: ['nodemon']
     volumes:
-      - ./app/controllers:/app/controllers
-      - ./app/integration-test:/app/integration-test
-      - ./app/lib:/app/lib
-      - ./app/middleware:/app/middleware
-      - ./app/migrations:/app/migrations
-      - ./app/models:/app/models
-      - ./app/routes:/app/routes
-      - ./app/scripts:/app/scripts
-      - ./app/validators:/app/validators
+      - ./src/controllers:/src/controllers
+      - ./src/integration-test:/src/integration-test
+      - ./src/lib:/src/lib
+      - ./src/middleware:/src/middleware
+      - ./src/migrations:/src/migrations
+      - ./src/models:/src/models
+      - ./src/routes:/src/routes
+      - ./src/scripts:/src/scripts
+      - ./src/validators:/src/validators
       # Don't mount the local copy of node_modules, for compatibility reasons
-      - /app/node_modules
+      - /src/node_modules
     ports:
       - '4000:4000'
       - '9229:9229'

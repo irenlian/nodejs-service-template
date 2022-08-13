@@ -3,7 +3,12 @@ import { dbConnection, dbPoolMax, dbPoolMin } from '../config';
 
 const knexConfig = {
   client: 'pg',
-  connection: dbConnection,
+  connection: {
+    connectionString: dbConnection,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  },
   pool: { min: dbPoolMin, max: dbPoolMax },
 };
 
