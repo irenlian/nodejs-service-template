@@ -5,9 +5,9 @@ export type Project = {
     title: string;
     description: string;
     logo: string;
-    templateId: number,
-    startDate: Date,
-    endDate: Date,
+    template_id: number,
+    start_date: Date,
+    end_date: Date,
     status: ProjectStatuses,
     created_at: Date;
     updated_at: Date;
@@ -19,6 +19,10 @@ export type Project = {
     title: string;
     description: string;
     logo: string;
+    templateId: number,
+    startDate: Date,
+    endDate: Date,
+    status: ProjectStatuses,
     createdAt: Date;
     updatedAt: Date;
   };
@@ -27,4 +31,7 @@ export type Project = {
     title: string;
     description: string;
     logo: string;
+    templateId: number,
+    startDate: Date,
+    endDate: Date,
   }
