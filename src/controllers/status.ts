@@ -1,3 +1,3 @@
-import Express from 'express';
+import { Request, Response } from 'express';
 
-export const get = () => async (req: Express.Request, res: Express.Response) => res.send({ status: 'ok' });
+export const get = () => async (req: Request, res: Response) => res.send({ status: 'ok' });
