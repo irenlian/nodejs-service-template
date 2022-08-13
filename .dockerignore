@@ -1,5 +1,5 @@
-app/node_modules
-app/npm-debug.log
+src/node_modules
+src/npm-debug.log
 .git*
 .circleci
 deploy
