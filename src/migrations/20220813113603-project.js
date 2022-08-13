@@ -20,7 +20,7 @@ exports.up = function(db) {
       id SERIAL PRIMARY KEY,
       title VARCHAR(1000) NOT NULL,
       description TEXT NOT NULL,
-      logo VARCHAR(1000) NOT NULL,
+      logo VARCHAR(1000),
       created_at TIMESTAMP DEFAULT NOW() NOT NULL,
       updated_at TIMESTAMP DEFAULT NOW() NOT NULL
     );
@@ -33,7 +33,9 @@ exports.up = function(db) {
 };
 
 exports.down = function(db) {
-  return db.runSql(`DROP TABLE projects;`);
+  return db.runSql(`
+    DROP TABLE projects;
+  `);
 };
 
 exports._meta = {
