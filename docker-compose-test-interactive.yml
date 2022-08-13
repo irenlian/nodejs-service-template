@@ -5,7 +5,7 @@ services:
     tty: true
     command: ['npm', 'run', 'test-interactive']
     volumes:
-      - ./coverage:/app/coverage
-      - ./app:/app
+      - ./coverage:/src/coverage
+      - ./src:/src
       # Don't mount the local copy of node_modules, for compatibility reasons
       - /node_modules

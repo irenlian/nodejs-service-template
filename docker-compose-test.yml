@@ -3,7 +3,7 @@ services:
   unique-service:
     command: ['npm', 'test']
     volumes:
-      - artifacts:/app/coverage
+      - artifacts:/src/coverage
 
 volumes:
   artifacts:
