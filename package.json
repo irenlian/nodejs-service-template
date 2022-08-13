@@ -7,9 +7,9 @@
         "testEnvironment": "node"
     },
     "scripts": {
+        "start": "node dist/index.js",
         "build": "npx tsc",
         "debug": "node --inspect=0.0.0.0 -r ts-node/register ./index.ts",
-        "server": "node dist/index.js",
         "dev": "nodemon",
         "migrate": "dotenv db-migrate up",
         "migrate:down": "dotenv db-migrate reset",
