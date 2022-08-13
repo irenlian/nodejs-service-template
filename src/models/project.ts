@@ -2,11 +2,9 @@ import joi from 'joi';
 import humps from 'humps';
 import { knex } from '../lib/db';
 import { Project, ProjectCamel, CreateProject } from './types';
+import { createProjectSchema } from './schemas';
 
 export const table = 'project';
-export const schema = {
-  name: joi.string().required(),
-};
 
 export const find = async (limit?: number, offset?: number) => {
   const query = knex<Project>(table).select('*').orderBy('id', 'asc');
@@ -34,13 +32,13 @@ export const findById = async (id: number) => {
 };
 
 export const create = async (data: CreateProject) => {
-  const v = joi.object(schema).validate(data, { presence: 'required' });
+  const v = joi.object(createProjectSchema).validate(data, { presence: 'required' });
   if (v.error) {
-    throw new Error(`Validation error: ${v.value}`);
+    throw new Error(`${v.error}`);
   }
-
+console.log('test')
   const results: number[] = await knex<Project>(table).insert(humps.decamelizeKeys(data)).returning('id');
-
+  console.log('test2')
   return results[0];
 };
 

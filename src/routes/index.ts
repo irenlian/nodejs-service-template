@@ -1,8 +1,8 @@
 import Express from 'express';
-import itemRoutes from './item';
+import projectRoutes from './project';
 import statusRoutes from './status';
 
 export default (app: Express.Application) => {
-  itemRoutes(app);
+  projectRoutes(app);
   statusRoutes(app);
 };

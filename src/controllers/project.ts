@@ -25,5 +25,6 @@ export const get = (model: Project) => async (req: Request, res: Response) => {
 export const create = (model: Project) => async (req: Request, res: Response) => {
   const { body } = req;
   const id = await model.create(body);
+  
   return res.send({ id });
 };
