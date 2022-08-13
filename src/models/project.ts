@@ -4,7 +4,7 @@ import { knex } from '../lib/db';
 import { Project, ProjectCamel, CreateProject } from './types';
 import { createProjectSchema } from './schemas';
 
-export const table = 'project';
+export const table = 'projects';
 
 export const find = async (limit?: number, offset?: number) => {
   const query = knex<Project>(table).select('*').orderBy('id', 'asc');
@@ -36,9 +36,8 @@ export const create = async (data: CreateProject) => {
   if (v.error) {
     throw new Error(`${v.error}`);
   }
-console.log('test')
   const results: number[] = await knex<Project>(table).insert(humps.decamelizeKeys(data)).returning('id');
-  console.log('test2')
+
   return results[0];
 };
 

@@ -3,7 +3,6 @@ export type Project = {
     id: number;
     title: string;
     description: string;
-    leader_user_id: string;
     logo: string;
     created_at: Date;
     updated_at: Date;
@@ -14,7 +13,6 @@ export type Project = {
     id: number;
     title: string;
     description: string;
-    leaderUserId: string;
     logo: string;
     createdAt: Date;
     updatedAt: Date;
@@ -23,6 +21,5 @@ export type Project = {
   export type CreateProject = {
     title: string;
     description: string;
-    leaderUserId: string;
     logo: string;
   }

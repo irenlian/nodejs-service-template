@@ -10,7 +10,6 @@ export const create = {
   body: Joi.object({
     title: Joi.string().required(),
     description: Joi.string().required(),
-    leaderUserId: Joi.number().required(),
     logo: Joi.string().required(),
   }),
 };
