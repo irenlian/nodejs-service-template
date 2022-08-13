@@ -16,11 +16,17 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db) {
   return db.runSql(`
+    CREATE TYPE project_status AS ENUM ('pending', 'in_progress', 'completed');
+
     CREATE TABLE projects (
       id SERIAL PRIMARY KEY,
       title VARCHAR(1000) NOT NULL,
       description TEXT NOT NULL,
+      template_id INT,
+      start_date TIMESTAMP DEFAULT NOW() NOT NULL,
+      end_date TIMESTAMP,
       logo VARCHAR(1000),
+      status project_status DEFAULT 'pending',
       created_at TIMESTAMP DEFAULT NOW() NOT NULL,
       updated_at TIMESTAMP DEFAULT NOW() NOT NULL
     );
@@ -34,7 +40,9 @@ exports.up = function(db) {
 
 exports.down = function(db) {
   return db.runSql(`
+    DROP TRIGGER tr_project_updated_at ON projects;
     DROP TABLE projects;
+    DROP TYPE project_status;
   `);
 };
 

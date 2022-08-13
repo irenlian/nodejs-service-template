@@ -7,7 +7,7 @@ import { createProjectSchema } from './schemas';
 export const table = 'projects';
 
 export const find = async (limit?: number, offset?: number) => {
-  const query = knex<Project>(table).select('*').orderBy('id', 'asc');
+  const query = knex<Project>(table).select('*').orderBy('start_date', 'asc');
 
   if (limit) {
     query.limit(limit);
