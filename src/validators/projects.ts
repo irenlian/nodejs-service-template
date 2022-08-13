@@ -6,9 +6,12 @@ export const id = {
   }),
 };
 
-export const createOrUpdate = {
+export const create = {
   body: Joi.object({
-    name: Joi.string().required(),
+    title: Joi.string().required(),
+    description: Joi.string().required(),
+    leaderUserId: Joi.number().required(),
+    logo: Joi.string().required(),
   }),
 };
 

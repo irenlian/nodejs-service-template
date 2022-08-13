@@ -1,8 +1,11 @@
 -- rambler up
 
-CREATE TABLE item (
+CREATE TABLE project (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  leader_user_id INT;
+  logo TEXT NOT NULL;
   created_at TIMESTAMP DEFAULT NOW() NOT NULL,
   updated_at TIMESTAMP DEFAULT NOW() NOT NULL
 );
@@ -14,4 +17,4 @@ CREATE TRIGGER tr_item_updated_at
 
 -- rambler down
 
-DROP TABLE item;
+DROP TABLE project;
